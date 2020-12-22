@@ -34,7 +34,7 @@ end
 function printInventory()
 	for slot = 1, SLOT_COUNT, 1 do
 		local item_data = turtle.getItemDetail(slot)
-		if itemdata then
+		if item_data then
 			print(item_data["name"])
 		end
 	end
