@@ -10,14 +10,16 @@ WANTED_ITEMS = {
 function searchInventory(item_name)
 	for slot = 1, SLOT_COUNT, 1 do
 		local item_data = turtle.getItemDetail(slot)
-		if item_data["name"] == item_name then
-			return slot
+		if item_data then
+			if item_data["name"] == item_name then
+				return slot
+			end
 		end
 	end
 	return ERROR_NOT_FOUND
 end
 
-function filterInventory(filter_list)
+function filterInventory(filter_set)
 	for slot = 1, SLOT_COUNT, 1 do
 		local item_data = turtle.getItemDetail(slot)
 		if item_data then
@@ -32,7 +34,9 @@ end
 function printInventory()
 	for slot = 1, SLOT_COUNT, 1 do
 		local item_data = turtle.getItemDetail(slot)
-		print(item_data["name"])
+		if itemdata then
+			print(item_data["name"])
+		end
 	end
 end
 
@@ -43,12 +47,7 @@ end
 function test()
 	printInventory()
 	local result = searchInventory("minecraft:iron_ore")
-	if result then
-		print("Found iron ore")
-	end
 	filterInventory(WANTED_ITEMS)
-	printInventory()
-	emptyInventory()
 	printInventory()
 end
 
