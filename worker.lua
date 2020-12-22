@@ -1,5 +1,5 @@
 -- Code for worker turtle
-
+print("Worker online, waiting for fuel...")
 --Wait for fuel
 while(turtle.getFuelLevel() == 0) do
     turtle.refuel()

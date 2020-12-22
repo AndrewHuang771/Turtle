@@ -44,11 +44,3 @@ function emptyInventory()
 	filterInventory({})
 end
 
-function test()
-	printInventory()
-	local result = searchInventory("minecraft:iron_ore")
-	filterInventory(WANTED_ITEMS)
-	printInventory()
-end
-
-test()
