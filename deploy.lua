@@ -66,4 +66,3 @@ for i=1, NUMBER_OF_WORKERS, 1 do
 
     dig(WORKER_SPACING)
 end
-
