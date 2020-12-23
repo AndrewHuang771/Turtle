@@ -4,18 +4,15 @@
 --Item slot 15: Disk Drive
 --Item slot 16: Mining Turtles
 
+--command line arguments
+args = {...}
+
+
 FUEL_SLOT = 13
 FLOPPY_DISK_SLOT = 14
 DISK_DRIVE_SLOT = 15
 MINING_TURTLE_SLOT = 16
-AMOUNT_OF_MASTER_FUEL = 1
 WORKER_SPACING = 2
-
-NUMBER_OF_WORKERS = 1
-AMOUNT_OF_WORKER_FUEL = 1   --currently using coal (80 moves per coal)
-
-turtle.select(FUEL_SLOT)
-turtle.refuel(AMOUNT_OF_MASTER_FUEL)
 
 --everything to deploy a worker
 function deployWorker(num_fuel)
@@ -54,9 +51,24 @@ function dig(num_blocks)
     end
 end
 
-for i=1, NUMBER_OF_WORKERS, 1 do
+
+--get arguments
+length = args[1]
+width = args[2]
+
+num_workers = math.floor(length/2)
+print("num_workers = ", num_workers)
+worker_fuel = math.ceil(width/40)
+print("worker_fuel = ", worker_fuel)
+master_fuel = math.ceil(length/80)
+print("master_fuel = ", master_fuel)
+
+turtle.select(FUEL_SLOT)
+turtle.refuel(master_fuel)
+
+for i=1, num_workers, 1 do
     
-    deployWorker(AMOUNT_OF_WORKER_FUEL)
+    deployWorker(worker_fuel)
 
     --wait for worker turtle above it to leave
     while(turtle.inspectUp()) do
