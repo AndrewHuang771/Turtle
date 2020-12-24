@@ -12,7 +12,9 @@ WANTED_ITEMS = {
     ["minecraft:lapis_lazuli"]=true,
     ["draconicevolution:draconium_dust"]=true,
     ["fluxnetworks:flux"]=true,
-    ["projectred-core:resource_item"]=true
+    ["projectred-core:resource_item"]=true,
+    ["thermalfoundation:ore"]=true,
+    ["ic2:resource"]=true
 }
 
 function filterInventory(filter_set)
