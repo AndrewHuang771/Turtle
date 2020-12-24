@@ -38,8 +38,9 @@ function dig(num_blocks)
         turtle.digUp()
         turtle.digDown()
         turtle.dig()
-        turtle.forward()
-
+        while not turtle.forward() do
+            turtle.dig()
+        end
     end
 end
 
@@ -67,7 +68,9 @@ turtle.digDown()
 --turn around
 turtle.turnRight()
 turtle.dig()
-turtle.forward()
+while not turtle.forward() do
+    turtle.dig()
+end
 turtle.turnRight()
 
 --come back

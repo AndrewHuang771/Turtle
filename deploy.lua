@@ -48,7 +48,11 @@ end
 function dig(num_blocks)
     for i=1, num_blocks, 1 do
         turtle.dig()
-        turtle.forward()
+
+        while not turtle.forward() do
+            turtle.dig()
+        end
+
         turtle.digUp()
         turtle.digDown()
     end
