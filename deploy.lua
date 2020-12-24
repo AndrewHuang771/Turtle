@@ -71,7 +71,7 @@ for i=1, num_workers, 1 do
     deployWorker(worker_fuel)
 
     --wait for worker turtle above it to leave
-    while(turtle.inspectUp()) do
+    while(turtle.up() == false) do
     end
 
     retrieveDisk()
